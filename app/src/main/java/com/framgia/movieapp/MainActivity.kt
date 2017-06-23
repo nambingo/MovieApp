@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
-import com.framgia.movieapp.fragment.FavoriteFragment
+import com.framgia.movieapp.favorite.FavoriteFragment
 import com.framgia.movieapp.nowplaying.NowPlayingFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
