@@ -8,6 +8,8 @@ import com.framgia.movieapp.base.BaseView
  */
 
 class NowPlayingContract {
-  internal interface ViewModel : BaseView<Presenter>
+  internal interface ViewModel : BaseView<Presenter>{
+    fun setText(text: String)
+  }
   interface Presenter : BasePresenter
 }

@@ -14,8 +14,10 @@ import rx.subscriptions.CompositeSubscription
  */
 
 class NowPlayingPresenter(private val mNowPlayingRepository: NowPlayingRepository) {
-  private val mSubscription: CompositeSubscription
+  private var mSubscription: CompositeSubscription? = null
+  private val mNowView: NowPlayingContract.ViewModel? = null
   private val mPage = 1
+  private var mText:String = ""
 
   init {
     mSubscription = CompositeSubscription()
@@ -27,6 +29,8 @@ class NowPlayingPresenter(private val mNowPlayingRepository: NowPlayingRepositor
           override fun onSuccess(`object`: NowPlaying) {
             Log.e("NowPlayingPresenter",
                 "onSuccess(30) -----> " + `object`.results!![0].title!!)
+            mText = `object`.results!!.get(0).title!!
+            mNowView?.setText(mText)
           }
 
           override fun onError(error: BaseException) {
@@ -34,6 +38,6 @@ class NowPlayingPresenter(private val mNowPlayingRepository: NowPlayingRepositor
           }
         })
 
-    mSubscription.add(subscription)
+    mSubscription?.add(subscription)
   }
 }
